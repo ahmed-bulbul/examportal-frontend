@@ -9,6 +9,11 @@ export class LoginService {
 
   constructor(private http:HttpClient) { }
 
+  //current user : which is loogedin
+  public getCurrentUser(){
+    return this.http.get(`${baseUrl}/currentUser`);
+  }
+
   //generate Token
   public generateToken(loginData:any){
     return this.http.post(`${baseUrl}/generateToken`,loginData);
