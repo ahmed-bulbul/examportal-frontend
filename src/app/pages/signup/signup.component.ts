@@ -81,7 +81,7 @@ export class SignupComponent implements OnInit {
         //error
         console.log(error);
         //alert('something went wrong');
-        this.snake.open('something went wrong !!','ok',{
+        this.snake.open('something went wrong !!'+error,'ok',{
           duration:3000,
         })
 
