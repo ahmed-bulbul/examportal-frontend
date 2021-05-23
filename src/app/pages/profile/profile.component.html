@@ -1,1 +1,50 @@
-<h3>Profile Details</h3>
+<mat-card *ngIf="user">
+    <h1>Your Profile Details</h1>
+    <!-- {{user | json}} -->
+    <mat-card-content>
+        <div class="bootstrap-wrapper">
+            <div class="container">
+
+                <div class="container text-center">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyKynboZOfqKPxzRwm5HcCLZK6paDOKipB4w&usqp=CAU" alt="" class="profile-image">
+
+                    <h1 class="mt20">{{user.firstName}}  {{user.lastName}}</h1>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-10 offset-md-1">
+                        <!-- table details -->
+                        <table class="table text-center">
+                            <tr>
+                                <td>Username</td>
+                                <td>{{user.username}}</td>
+                            </tr>
+                            <tr>
+                                <td>Userid</td>
+                                <td>Exam{{user.id}}</td>
+                            </tr>
+                            <tr>
+                                <td>Phone</td>
+                                <td>{{user.phone}}</td>
+                            </tr>
+                            <tr>
+                                <td>Role</td>
+                                <td>
+                                    <p *ngFor="let role of user.authorities">{{role.authority}}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Status</td>
+                                <td>{{user.enabled?"ACTIVE":"NOT ACTIVE"}}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+    <mat-card-actions class="text-center">
+        <button mat-raised-button color="primary">UPDATE</button>
+        <button mat-raised-button color="accent">CLEAR</button>
+      </mat-card-actions>
+</mat-card>
