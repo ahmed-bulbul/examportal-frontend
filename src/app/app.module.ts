@@ -29,6 +29,7 @@ import { ViewCategoriesComponent } from './pages/admin/view-categories/view-cate
 import { AddCategoriesComponent } from './pages/admin/add-categories/add-categories.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { SpinnersAngularModule } from 'spinners-angular';
+import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { SpinnersAngularModule } from 'spinners-angular';
     WelcomeComponent,
     ViewCategoriesComponent,
     AddCategoriesComponent,
+    ViewQuizzesComponent,
     
   ],
   imports: [
@@ -68,4 +70,6 @@ import { SpinnersAngularModule } from 'spinners-angular';
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+ }

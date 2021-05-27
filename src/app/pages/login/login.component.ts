@@ -14,11 +14,14 @@ export class LoginComponent implements OnInit {
     password: '',
   };
 
+  showSpinner: boolean=false;
+
   constructor(private snack: MatSnackBar, private login: LoginService,private router:Router) {}
 
   ngOnInit(): void {}
 
   formSubmit() {
+    this.showSpinner=true;
     console.log('Login button click');
 
     if (
@@ -51,6 +54,7 @@ export class LoginComponent implements OnInit {
         this.login.getCurrentUser().subscribe((user:any)=>{
             this.login.setUser(user);
             console.log(user);
+            this.showSpinner=false;
             //redirect ..ADMIN: admin-dashboard
             //redirect ..NORMAL normal-user
             if((this.login.getUserRole()=="ADMIN") || (this.login.getUserRole()=="ADMIN" && this.login.getUserRole()=="NORMAL") ){
@@ -73,6 +77,7 @@ export class LoginComponent implements OnInit {
       (error) => {
         console.log('Error !');
         console.log(error);
+        this.showSpinner=false;
         this.snack.open("Invalid Details !! Try again",'ok',{
           duration:3000,
         })
