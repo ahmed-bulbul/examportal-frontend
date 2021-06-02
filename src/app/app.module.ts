@@ -30,6 +30,9 @@ import { AddCategoriesComponent } from './pages/admin/add-categories/add-categor
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { SpinnersAngularModule } from 'spinners-angular';
 import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.component';
+import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatSelectModule} from '@angular/material/select';
 
 
 @NgModule({
@@ -48,6 +51,7 @@ import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.co
     ViewCategoriesComponent,
     AddCategoriesComponent,
     ViewQuizzesComponent,
+    AddQuizComponent,
     
   ],
   imports: [
@@ -66,6 +70,8 @@ import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.co
     MatListModule,
     MatProgressSpinnerModule,
     SpinnersAngularModule,
+    MatSlideToggleModule,
+    MatSelectModule,
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

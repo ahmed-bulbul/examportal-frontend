@@ -12,4 +12,9 @@ export class QuizService {
   public quizzes(){
     return this._http.get(`${baseUrl}/quiz/`);
   }
+
+  //add quiz
+  public addQuiz(quiz){
+    return this._http.post(`${baseUrl}/quiz/`,quiz);
+  }
 }
