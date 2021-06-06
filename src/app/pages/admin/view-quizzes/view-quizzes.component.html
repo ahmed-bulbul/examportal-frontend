@@ -12,11 +12,19 @@
         <p>{{q.description}}</p>
     </mat-card-content>
     <mat-card-action>
-        <button mat-flat-button color="primary">Questions</button>
+        <button mat-flat-button color="primary"
+         [routerLink]="'/admin/view-questions/' + q.qId +'/' + q.title">Questions</button>
         <button mat-stroked-button color="primary" class="ml20">Max Marks: {{q.maxMarks}}</button>
         <button mat-stroked-button color="primary" class="ml20">Questions: {{q.numberOfQuestions}}</button>
-        <button mat-flat-button color="primary" class="ml20">Update</button>
+        <!-- active field -->
+        <mat-slide-toggle
+        name="active"
+        [(ngModel)]="q.active"
+        class="ml20" >
+    </mat-slide-toggle>
+        <button [routerLink]=" '/admin/quiz/'+q.qId " mat-flat-button color="primary" class="ml20">Update</button>
         <button mat-flat-button color="primary" class="ml20">Attempts</button>
+        <button mat-flat-button color="warn" class="ml10" (click)="deleteQuiz(q.qId)">Delete</button>
     </mat-card-action>
 </mat-card>
 
