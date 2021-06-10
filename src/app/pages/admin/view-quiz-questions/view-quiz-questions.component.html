@@ -11,12 +11,12 @@
             <mat-card *ngFor="let q of questions;let i=index" class="mt20">
                 <mat-card-content>
                     <p>
-                        <b>Q{{i+1}} ) </b><span class="ml20" [innerHTML]="q.content"></span>
+                        <b>Q{{i+1}})</b><span class="ml10" [innerHTML]="q.content"></span>
                     </p>
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-6">
-                                <p><b>1)</b> {{ q.option1}}</p>
+                                <p><b>1) </b> {{ q.option1}}</p>
                             </div>
                             <div class="col-md-6">
                                 <p><b>2) </b>{{ q.option2}}</p>
@@ -34,6 +34,11 @@
                         <p class="mt20"><b>Correct Answer:</b> {{q.answer}}</p>
                     </div>
                 </mat-card-content>
+
+                <mat-cart-action>
+                    <button (click)="deleteQuestion(q.quesId)" mat-button color="warn"> Delete</button>
+                    <button mat-button color="primary">Update</button>
+                </mat-cart-action>
             </mat-card>
         </div>
     </div>
