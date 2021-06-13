@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
             this.showSpinner=false;
             //redirect ..ADMIN: admin-dashboard
             //redirect ..NORMAL normal-user
-            if((this.login.getUserRole()=="ADMIN") || (this.login.getUserRole()=="ADMIN" && this.login.getUserRole()=="NORMAL") ){
+            if(this.login.getUserRole()=="ADMIN"){
               //admin dashboard
               // window.location.href="/admin";
               this.router.navigate(['admin']);
@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit {
             }else if(this.login.getUserRole()=="NORMAL"){
               //normal user dashboard
               // window.location.href="/user-dashboard";
-              this.router.navigate(['user-dashboard']);
+              this.router.navigate(['user-dashboard/0']);
               this.login.loginStatusSubject.next(true);
             }else{
               this.login.logout();
