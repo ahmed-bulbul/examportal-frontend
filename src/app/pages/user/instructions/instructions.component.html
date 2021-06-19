@@ -16,7 +16,7 @@
                     <mat-card-content class="ml20">
                         <!-- Content -->
 
-                        <h1>{{quiz.title}}</h1>
+                        <h1 *ngIf="quiz.title">{{quiz.title}}</h1>
                         <p>{{quiz.description}}</p>
 
                         <mat-divider></mat-divider> 
@@ -54,7 +54,11 @@
                         
                     <mat-card-actions class="text-center">
                         <!-- Action -->
-                        <button mat-raised-button color="primary">Start Quiz</button>
+                        <button 
+                            (click)="startQuiz()"
+                             mat-raised-button color="primary">
+                             Start Quiz
+                        </button>
                     </mat-card-actions>
                 </mat-card>
             </div>
