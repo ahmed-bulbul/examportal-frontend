@@ -13,10 +13,10 @@
                         </mat-card-subtitle>
                     </mat-card-header>
 
-                    <mat-card-content class="ml20">
+                    <mat-card-content class="ml20" *ngIf="quiz">
                         <!-- Content -->
 
-                        <h1 *ngIf="quiz.title">{{quiz.title}}</h1>
+                        <h1 >{{quiz.title}}</h1>
                         <p>{{quiz.description}}</p>
 
                         <mat-divider></mat-divider> 
