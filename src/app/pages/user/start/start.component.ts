@@ -96,30 +96,45 @@ export class StartComponent implements OnInit {
 
   evalQuiz() {
     //calculation
-    this.isSubmit = true;
-
-    this.questions.forEach((q) => {
-      if (q.givenAnswer == q.answer) {
-        this.correctAnswer++;
-        let marksSingle =
-          this.questions[0].quiz.maxMarks / this.questions.length;
-        this.marksGot += marksSingle;
+    
+    //call to server to check questions
+    this._question.evalQuiz(this.questions).subscribe(
+      (data:any)=>{
+        console.log(data);
+        this.marksGot=data.marksGot;
+        this.correctAnswer=data.correctAnswers;
+        this.attempted=data.attempted;
+        this.isSubmit = true;
+      },
+      (error)=>{
+        console.log(error);
+        
       }
+    );
+     
 
-      if (q.givenAnswer != q.answer && q.givenAnswer.trim() != '') {
-        this.wrongAnswer++;
-        // this.marksGot=this.marksGot-.50;
-      }
+    // this.questions.forEach((q) => {
+    //   if (q.givenAnswer == q.answer) {
+    //     this.correctAnswer++;
+    //     let marksSingle =
+    //       this.questions[0].quiz.maxMarks / this.questions.length;
+    //     this.marksGot += marksSingle;
+    //   }
 
-      if (q.givenAnswer.trim() != '') {
-        this.attempted++;
-      }
-    });
+    //   if (q.givenAnswer != q.answer && q.givenAnswer.trim() != '') {
+    //     this.wrongAnswer++;
+    //     // this.marksGot=this.marksGot-.50;
+    //   }
 
-    console.log('Correct Answer :' + this.correctAnswer);
-    console.log('Marks Got ' + this.marksGot);
-    console.log(this.questions);
-    console.log('Attempted ' + this.attempted);
-    console.log('Wrong Ans ' + this.wrongAnswer);
+    //   if (q.givenAnswer.trim() != '') {
+    //     this.attempted++;
+    //   }
+    // });
+
+    // console.log('Correct Answer :' + this.correctAnswer);
+    // console.log('Marks Got ' + this.marksGot);
+    // console.log(this.questions);
+    // console.log('Attempted ' + this.attempted);
+    // console.log('Wrong Ans ' + this.wrongAnswer);
   }
 }

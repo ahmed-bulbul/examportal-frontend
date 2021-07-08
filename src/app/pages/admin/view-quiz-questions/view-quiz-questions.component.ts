@@ -34,7 +34,7 @@ export class ViewQuizQuestionsComponent implements OnInit {
 
         console.log(error);
       });
-
+ 
   }
 
   //delete question
